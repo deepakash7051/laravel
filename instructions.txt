@@ -1,0 +1,3 @@
+#create Laravel project folder
+
+composer create-project --prefer-dist laravel/laravel projectName 5.2.29
