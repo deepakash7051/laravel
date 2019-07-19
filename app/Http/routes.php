@@ -11,22 +11,6 @@
 |
 */
 
-Route::get('/contact', function () {
-    return "Hi! I am contact.";
+Route::get('/', function () {
+    return view('welcome');
 });
-
-Route::get('/post/{id}', function ($id) {
-	return "Hi! This is a post ".$id;
-});
-
-Route::get('/post/{id}/{name}', function ($id, $name) {
-	return "Hi! This is a post ".$id.":" .$name;
-});
-
-Route::get('admin/post/example',['as' => 'admin.home',function(){
-	$url = route('admin.home');
-	return $url;
-}]);
-// Route::get('/', function () {
-//     return view('welcome');
-// });
