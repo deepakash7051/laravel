@@ -9,3 +9,6 @@ php artisan make:controller PostController
 
 #Create controller with actions
 php artisan make:controller --resources PostController
+
+#check commands in laravel
+php arisan
