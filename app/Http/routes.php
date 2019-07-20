@@ -13,6 +13,8 @@
 
 Route::get('post/{id}/{name}/{age}','PostController@custom');
 
+Route::get('contact','PostController@contact');
+
 Route::get('/', function () {
     return view('welcome');
 });

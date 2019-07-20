@@ -12,4 +12,9 @@ class PostController extends Controller
        // return view('test')->with('id',$id );
         return view('test',compact('id','name','age'));
     }
+
+    public function contact(){
+       // return view('test')->with('id',$id );
+        return view('contact');
+    }
 }
