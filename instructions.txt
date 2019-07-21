@@ -12,3 +12,21 @@ php artisan make:controller --resources PostController
 
 #check commands in laravel
 php arisan
+
+#run laravel migration
+php artisan migration
+
+#create laravel migration from scratch
+php artisan make:migration create_post_table --create = "post"
+
+#delete last created table
+php artisan migrate:rollback
+
+#reset all laravel migration 
+php artisan migrate:reset
+
+#remove migrations and add thesm again(Refresh)
+php artisan migrate:refresh
+
+#laravel migration status
+php artisan migrate:status
