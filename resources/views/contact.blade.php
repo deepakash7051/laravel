@@ -1,5 +1,10 @@
-@extends('layout.app')
+@extends('layouts.app')
+@section('container')
+<h1>This is Contact page</h1>
+@stop
 
-@section('content')
-<h1>This is a contact page</h1>
+@section('footer')
+<script type="text/javascript">
+	alert('here');
+</script>
 @stop

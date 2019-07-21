@@ -14,7 +14,6 @@ class PostController extends Controller
     }
 
     public function contact(){
-       // return view('test')->with('id',$id );
         return view('contact');
     }
 }
