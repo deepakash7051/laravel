@@ -15,6 +15,10 @@ Route::get('post/{id}/{name}/{age}','PostController@custom');
 
 Route::get('contact','PostController@contact');
 
+Route::get('/insert',function(){
+	DB::insert('insert into post(title,content) values(?,?)',['php with laravel', 'laravel is the best thing']);
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
