@@ -19,6 +19,23 @@ Route::get('/insert',function(){
 	DB::insert('insert into post(title,content) values(?,?)',['php with laravel', 'laravel is the best thing']);
 });
 
+Route::get('/read',function(){
+	$result = DB::Select('Select * from post where id=?',[1]);
+	foreach ($result as $post) {
+		return $post->title;
+	}
+});
+
+Route::get('/update', function(){
+	$result = DB::Update('Update post set title="wvfber" where id=?',[1]);
+	return $result;
+});
+
+Route::get('/delete',function(){
+	$result = DB::DELETE('delete from post where id=?',[1]);
+	return $result;
+});
+
 Route::get('/', function () {
     return view('welcome');
 });

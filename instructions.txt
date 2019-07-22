@@ -30,3 +30,6 @@ php artisan migrate:refresh
 
 #laravel migration status
 php artisan migrate:status
+
+#create model
+php artisan make:model Post
