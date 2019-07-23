@@ -33,3 +33,6 @@ php artisan migrate:status
 
 #create model
 php artisan make:model Post
+
+#create column in table using migration
+php artisan make:migration add_deleted_column_to_post_tables --table=

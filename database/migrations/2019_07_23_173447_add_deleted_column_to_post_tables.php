@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostTable extends Migration
+class AddDeletedColumnToPostTables extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,8 @@ class CreatePostTable extends Migration
      */
     public function up()
     {
-        Schema::create('post', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title');
-            $table->text('content');
-            $table->timestamps();
-            $table->integer('user_role')->default(0);
+        Schema::table('post', function (Blueprint $table) {
+            $table->SoftDeletes();
         });
     }
 
@@ -28,6 +24,8 @@ class CreatePostTable extends Migration
      */
     public function down()
     {
-        Schema::drop('post');
+        Schema::table('post', function (Blueprint $table) {
+            $table->dropColumn('deleted_at');
+        });
     }
 }
