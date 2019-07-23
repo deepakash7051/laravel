@@ -1,4 +1,5 @@
 <?php
+use App\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,31 +12,58 @@
 |
 */
 
-Route::get('post/{id}/{name}/{age}','PostController@custom');
+// Route::get('post/{id}/{name}/{age}','PostController@custom');
 
-Route::get('contact','PostController@contact');
+// Route::get('contact','PostController@contact');
 
 Route::get('/insert',function(){
-	DB::insert('insert into post(title,content) values(?,?)',['php with laravel', 'laravel is the best thing']);
+	DB::insert('insert into post(title,content) values(?,?)',['php with laravel is awesome', 'laravel is the best thing said by Edwin']);
 });
 
-Route::get('/read',function(){
-	$result = DB::Select('Select * from post where id=?',[1]);
-	foreach ($result as $post) {
-		return $post->title;
-	}
-});
+// Route::get('/read',function(){
+// 	$result = DB::Select('Select * from post where id=?',[1]);
+// 	foreach ($result as $post) {
+// 		return $post->title;
+// 	}
+// });
 
-Route::get('/update', function(){
-	$result = DB::Update('Update post set title="wvfber" where id=?',[1]);
-	return $result;
-});
+// Route::get('/update', function(){
+// 	$result = DB::Update('Update post set title="wvfber" where id=?',[1]);
+// 	return $result;
+// });
 
-Route::get('/delete',function(){
-	$result = DB::DELETE('delete from post where id=?',[1]);
-	return $result;
-});
+// Route::get('/delete',function(){
+// 	$result = DB::DELETE('delete from post where id=?',[1]);
+// 	return $result;
+// });
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+/*-------------------------------*/
+	#ELOQUENT
+/*-------------------------------*/
+Route::get('/read', function(){
+	// $post = POST::all();
+	// foreach ($post as $value) {
+	// 	return $post;
+	// }
+
+	/*  OR  */
+	$id = 2;
+	$post = POST::find($id);
+	return $post;
+});
+
+Route::get('/findWhere', function(){
+	$post = POST::where('id',3)->orderBy('id','desc')->take(1)->get();
+	return $post;
+});
+
+Route::get('/findMore', function(){
+	$post = Post::findOrFail(3);
+	return $post;
+
+	//$post = POST::where('user_count', '<', 50)->firstOrFail();
 });
