@@ -1,5 +1,6 @@
 <?php
 use App\Post;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -120,4 +121,8 @@ Route::get('/restore', function(){
 Route::get('/forceDelete', function(){
 	POST::withTrashed()->where('id', 1)->forceDelete();
 	//POST::onlyTrashed()->where('id', 1)->forceDelete();
+});
+
+Route::get('/user/{id}/post', function($id){
+	return User::find($id)->post;
 });
